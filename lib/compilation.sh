@@ -143,9 +143,7 @@ compile_uboot()
 
 	if [[ -n $UBOOT_TOOLCHAIN2 ]]; then
 		local toolchain2_type toolchain2_ver toolchain2
-		toolchain2_type=$(cut -d':' -f1 <<< "${UB
-
-this and we can deal with this some other time.OOT_TOOLCHAIN2}")
+		toolchain2_type=$(cut -d':' -f1 <<< "${UBOOT_TOOLCHAIN2}")
 		toolchain2_ver=$(cut -d':' -f2 <<< "${UBOOT_TOOLCHAIN2}")
 		toolchain2=$(find_toolchain "$toolchain2_type" "$toolchain2_ver")
 		[[ -z $toolchain2 ]] && exit_with_error "Could not find required toolchain" "${toolchain2_type}gcc $toolchain2_ver"
